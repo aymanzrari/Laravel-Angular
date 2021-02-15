@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class CROS
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        $origin = $request->header('origin');
+    $origin = $origin ?? '*';
+
+    // ALLOW OPTIONS METHOD
+    $headers = [
+        'Access-Control-Allow-Origin' => $origin,
+        'Access-Control-Allow-Methods'=> 'GET, POST, DELETE, PUT, OPTIONS, HEAD, PATCH',
+        'Access-Control-Allow-Headers'=> 'Authorization,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Set-Cookie',
+        'Access-Control-Allow-Credentials'=> 'true'
+    ];
+    return $next($request);
+    }
+}
