@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="d-flex pt-4 pb-2 justify-content-between">
+    <h2>Employees</h2>
+    <button routerLink="/employees/create" class="btn btn-primary">Add new employe</button>
+  </div>
+  <table class="table table-striped table-hover table-bordered">
+      <thead>
+          <tr>
+              <th>#</th>
+              <th>Name <i class="fa fa-sort"></i></th>
+              <th>phone</th>
+              <th>Job</th>
+              <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let employe of employees">
+              <td>{{employe.id}}</td>
+              <td>{{employe.name}}</td>
+              <td>{{employe.phone}}</td>
+              <td>{{employe.job}}</td>
+              <td class="text-center">
+                <a routerLink="/employees/{{employe.id}}/edit" class="btn btn-warning mr-2">Edit</a>
+                <a (click)="delete(employe.id)" class="btn btn-danger">Delete</a>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+</div>

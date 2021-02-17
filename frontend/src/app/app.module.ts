@@ -10,7 +10,11 @@ import { LoginComponent } from './components/login/login.component';
 
 import{ FormsModule} from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
-
+import {ToastrModule} from 'ngx-toastr'
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CreateComponent } from './components/employees/create/create.component';
+import { EditComponent } from './components/employees/edit/edit.component';
+import { ListComponent } from './components/employees/list/list.component'
 
 @NgModule({
   declarations: [
@@ -18,13 +22,18 @@ import { HttpClientModule } from '@angular/common/http';
     ProfileComponent,
     SignupComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    CreateComponent,
+    EditComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,22 @@
+<div class="card mt-3">
+    <div class="card-header">
+        <h3>Edit employe</h3>
+    </div>
+    <div class="card-body">
+        <form (submit)="update()">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" [(ngModel)]="employe.name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="phone">phone</label>
+                <input type="text" name="phone" id="phone"  [(ngModel)]="employe.phone" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="job">job</label>
+                <input type="text" name="job" id="job"  [(ngModel)]="employe.job" class="form-control">
+            </div>
+            <button class="btn btn-success">Save</button>
+        </form>
+    </div>
+</div>
