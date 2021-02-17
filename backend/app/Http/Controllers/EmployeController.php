@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EmployeController extends Controller
 {
-
     public function index(Request $request)
     {
         $employes = Employe::applyFilters($request->all())->get();
@@ -16,6 +15,14 @@ class EmployeController extends Controller
         return response()->json([
             'error' => false,
             'employes'  => $employes,
+        ], Response::HTTP_ACCEPTED);
+    }
+
+    public function show(Employe $employe)
+    {
+        return response()->json([
+            'error' => false,
+            'employe'  => $employe,
         ], Response::HTTP_ACCEPTED);
     }
 
@@ -50,6 +57,17 @@ class EmployeController extends Controller
             'error' => false,
             'employe' => $employe,
             'messages'=> 'Employe Successfully Updated'
+        ], Response::HTTP_ACCEPTED);
+    }
+
+    public function destroy(Employe $employe)
+    {
+        $employe->delete();
+
+        return response()->json([
+            'error' => false,
+            'employe' => $employe,
+            'messages'=> 'Employe Successfully Deleted'
         ], Response::HTTP_ACCEPTED);
     }
 }
